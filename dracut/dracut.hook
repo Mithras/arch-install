@@ -1,0 +1,15 @@
+[Trigger]
+Type=Package
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Target=nvidia
+Target=linux
+
+[Action]
+Description=Updating UKIs...
+When=PostTransaction
+Exec=/usr/local/bin/dracut.sh
+Depends=dracut
+Depends=rsync
+AbortOnFail

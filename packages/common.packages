@@ -1,0 +1,14 @@
+linux dracut
+
+linux-firmware
+intel-ucode
+nvidia nvidia-utils nvidia-settings lib32-nvidia-utils
+
+pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack wireplumber
+
+xorg-server
+wayland xorg-xwayland egl-wayland
+
+sbctl reflector sudo btrfs-progs networkmanager bluez bluez-utils cifs-utils base-devel curl openssh snapper rsync git docker syncthing nano adobe-source-han-sans-jp-fonts flatpak fcitx5-im htop
+
+keepassxc qbittorrent mpv telegram-desktop strawberry steam ttf-liberation gamemode wine lib32-gnutls
