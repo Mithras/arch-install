@@ -1,4 +1,4 @@
 #!/bin/bash
 
 umount /mnt/main
-mount -t cifs -o username=mithras,uid=mithras,gid=mithras //synology/Main /mnt/main
+mount -t cifs -o username=mithras,uid=$USER,gid=$(id -gn) //synology/Main /mnt/main

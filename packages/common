@@ -9,6 +9,6 @@ pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack wireplumber
 xorg-server
 wayland xorg-xwayland egl-wayland
 
-sbctl reflector sudo btrfs-progs networkmanager bluez bluez-utils cifs-utils base-devel curl openssh snapper rsync git docker syncthing nano adobe-source-han-sans-jp-fonts flatpak fcitx5-im htop
+sbctl reflector sudo btrfs-progs networkmanager bluez bluez-utils cifs-utils base-devel curl openssh snapper rsync git docker docker-compose syncthing nano adobe-source-han-sans-jp-fonts flatpak fcitx5-im htop nvtop iwd
 
 keepassxc qbittorrent mpv telegram-desktop strawberry steam ttf-liberation gamemode wine lib32-gnutls
