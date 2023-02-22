@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-mkdir -p ~/.config/systemd/user
-mkdir -p ~/.config/environment.d
-
-cat <<EOF > ~/.config/systemd/user/ssh-agent.service
+mkdir -p $HOME/.config/systemd/user
+cat <<EOF > $HOME/.config/systemd/user/ssh-agent.service
 [Unit]
 Description=SSH key agent
 
@@ -17,6 +15,8 @@ ExecStart=/usr/bin/ssh-agent -D -a \$SSH_AUTH_SOCK
 WantedBy=default.target
 EOF
 
-echo 'SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"' > ~/.config/environment.d/ssh_auth_socket.conf
+mkdir -p $HOME/.config/environment.d
+echo 'SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"' > $HOME/.config/environment.d/ssh_auth_socket.conf
 
+SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 systemctl --user enable --now ssh-agent

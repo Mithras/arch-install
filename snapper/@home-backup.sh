@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
-snapper -c @home create -c number -d manual \
-&& snapper -c @home list
+snapper -c @home create -c number -d manual
+snapper -c @home list

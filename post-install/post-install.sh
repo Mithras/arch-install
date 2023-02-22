@@ -2,20 +2,25 @@
 set -e
 
 # Systemd
-systemctl enable --now NetworkManager
-systemctl enable --now systemd-timesyncd
-systemctl enable --now bluetooth
-systemctl enable --now docker
-systemctl enable --now syncthing@$USER
-systemctl enable --now sshd
-systemctl enable fstrim.timer
-systemctl enable reflector.timer
-systemctl enable btrfs-scrub@-.timer
+sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now systemd-timesyncd
+sudo systemctl enable --now bluetooth
+sudo systemctl enable --now docker
+sudo systemctl enable --now syncthing@$USER
+sudo systemctl enable --now sshd
+sudo systemctl enable fstrim.timer
+sudo systemctl enable reflector.timer
+sudo systemctl enable btrfs-scrub@-.timer
+
+# Yay
+git clone https://aur.archlinux.org/yay.git $HOME
+cd yay
+makepkg -si
 
 # KDE
-echo '[Wallet]' > ~/.config/kwalletrc
-echo 'Enabled=false' >> ~/.config/kwalletrc
-systemctl enable --now sddm
+echo '[Wallet]' > $HOME/.config/kwalletrc
+echo 'Enabled=false' >> $HOME/.config/kwalletrc
+sudo systemctl enable --now sddm
 
 # Gnome
 #systemctl enable gdm

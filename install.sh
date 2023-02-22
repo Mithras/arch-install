@@ -5,10 +5,10 @@ UUID='2b93b382-67ee-4fd2-9da9-fee023e432e6'
 HOST='mithras-pc'
 USER='mithras'
 
-# Packages
-pacman -S --needed $(<./packages/common)
-pacman -S --needed $(<./packages/kde)
-#pacman -S --needed $(<./packages/gnome)
+# Packages (common cpu-intel gpu-nvidia gpu-intel kde gnome)
+pushd ./packages
+pacman -S --needed $(<common) $(<cpu-intel) $(<gpu-nvidia) $(<kde)
+popd
 
 # Time Zone
 ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
@@ -33,15 +33,18 @@ sbctl sign -s /efi/EFI/systemd/systemd-bootx64.efi
 sbctl sign -s /efi/EFI/BOOT/BOOTX64.EFI
 
 # Dracut
-sed -i -E "s/UUID=[^ ]+/UUID=$UUID/g" ./dracut/dracut.conf
+pushd ./dracut
+sed -i -E "s/UUID=[^ ]+/UUID=$UUID/g" dracut.conf
 mkdir -p /etc/pacman.d/hooks
-cp ./dracut/dracut.sh /usr/local/bin/dracut.sh
-cp ./dracut/dracut.conf /usr/local/bin/dracut.conf
-cp ./dracut/dracut.hook /etc/pacman.d/hooks/dracut.hook
+cp dracut.sh /usr/local/bin/dracut.sh
+cp dracut.conf /usr/local/bin/dracut.conf
+cp dracut.hook /etc/pacman.d/hooks/dracut.hook
 /usr/local/bin/dracut.sh
+popd
 
 # User
-useradd -G wheel $USER
+useradd -m -G wheel $USER
+btrfs subvolume create /home/$USER/.cache
 
 # Sudo
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
