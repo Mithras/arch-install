@@ -18,5 +18,5 @@ EOF
 mkdir -p $HOME/.config/environment.d
 echo 'SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"' > $HOME/.config/environment.d/ssh_auth_socket.conf
 
-SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 systemctl --user enable --now ssh-agent
