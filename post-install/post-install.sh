@@ -12,9 +12,9 @@ sudo systemctl enable reflector.timer
 sudo systemctl enable btrfs-scrub@-.timer
 systemctl --user enable --now syncthing
 
-# Yay
-git clone https://aur.archlinux.org/yay.git $HOME
-cd yay
+# paru
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 
 # KDE

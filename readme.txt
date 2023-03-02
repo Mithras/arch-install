@@ -69,9 +69,10 @@
   - keepass
   - fcitx
   - aur
-    yay -S visual-studio-code-bin
-    yay -S google-chrome
-    yay -S mangohud
+    paru -S paru-bin
+    paru -S visual-studio-code-bin
+    paru -S google-chrome
+    paru -S mangohud
   - flatpak
     flatpak install com.skype.Client
     flatpak install net.davidotek.pupgui2
@@ -170,10 +171,10 @@
       pacman -S kdenlive krdc kleopatra kompare kgpg kamera
     - gnome
       pacman -S gnome-disk-utility gnome-font-viewer gnome-remote-desktop gvfs-smb dconf-editor ghex gnome-connections sysprof
-      yay -S gnome-shell-extension-pop-shell-bin
+      paru -S gnome-shell-extension-pop-shell-bin
     - virt-manager (https://wiki.archlinux.org/title/Virt-Manager)
       pacman -S virt-manager qemu-desktop
-      # pacman -S swtpm
+      # pacman -S swtpm dnsmasq
       code /etc/libvirt/libvirtd.conf
         unix_sock_group='libvirt'
         unix_sock_rw_perms='0770'
@@ -203,18 +204,18 @@
         # Shift+F10 -> OOBE\BYPASSNRO -> e:\virtio-win-gt-x64.msi
         # https://www.spice-space.org/download.html
     - ventoy (https://wiki.archlinux.org/title/Ventoy)
-      yay -S ventoy-bin
+      paru -S ventoy-bin
       /opt/ventoy/Ventoy2Disk.sh
       # or
       /opt/ventoy/VentoyGUI.x86_64
     - alvr
-      yay -S sidequest-bin
+      paru -S sidequest-bin
       pacman -S rustup 
       rustup default stable
       rustup update
-      yay -S alvr
+      paru -S alvr
       # or
-      yay -S alvr-git
+      paru -S alvr-git
 ---
   - snapper (https://wiki.archlinux.org/title/snapper)
     # TODO: script
