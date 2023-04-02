@@ -216,6 +216,19 @@
       paru -S alvr
       # or
       paru -S alvr-git
+    - qpwgraph 
+      pacman -S qpwgraph
+    - easyeffects
+      pacman -S easyeffects
+    - smartmontools
+      pacman -S smartmontools
+      smartctl -a /dev/nvme0
+    - gparted
+      pacman -S gparted
+    - protontricks
+      paru -S protontricks
+    - gamescope-session (https://github.com/ChimeraOS/gamescope-session)
+      paru -S gamescope-session-git
 ---
   - snapper (https://wiki.archlinux.org/title/snapper)
     # TODO: script

@@ -3,8 +3,9 @@ Type=Package
 Operation=Install
 Operation=Upgrade
 Operation=Remove
-Target=nvidia
 Target=linux
+Target=linux-headers
+Target=nvidia-dkms
 
 [Action]
 Description=Updating UKIs...
