@@ -61,10 +61,13 @@
     git clone https://github.com/Mithras/arch-install.git
     cd ./arch-install/post-install
     
-    nano ./post-install.sh # review/update
-
+    code ./post-install.sh # review/update
     ./post-install.sh
+
     ./ssh-agent.sh
+
+    code ./snapper.sh # review/update
+    ./snapper.sh
   - syncthing
   - keepass
   - fcitx
@@ -229,44 +232,3 @@
       paru -S protontricks
     - gamescope-session (https://github.com/ChimeraOS/gamescope-session)
       paru -S gamescope-session-git
----
-  - snapper (https://wiki.archlinux.org/title/snapper)
-    # TODO: script
-    cd ~/Documents/src/arch-install/snapper
-    
-    snapper -c @ create-config /
-    snapper -c @home create-config /home
-    snapper list-configs
-    
-    cp @ /etc/snapper/configs/@
-    cp @home /etc/snapper/configs/@home
-
-    mount /dev/nvme0n1p2 /mnt
-    cd /mnt
-    btrfs subvolume list .
-    btrfs subvolume delete @/.snapshots
-    btrfs subvolume delete @home/.snapshots
-    btrfs subvolume create @snapshots
-    btrfs subvolume create @snapshots/@
-    btrfs subvolume create @snapshots/@home
-    btrfs subvolume list .
-    cd
-    umount /mnt
-
-    mkdir /.snapshots /home/.snapshots
-    code /etc/fstab
-      UUID=XXX /.snapshots btrfs rw,noatime,compress-force=zstd:1,ssd,discard=async,space_cache=v2,subvol=@snapshots/@ 0 0
-      UUID=XXX /home/.snapshots btrfs rw,noatime,compress-force=zstd:1,ssd,discard=async,space_cache=v2,subvol=@snapshots/@home 0 0
-    mount -a
-    lsblk
-
-    systemctl enable --now snapper-timeline.timer
-    systemctl enable --now snapper-cleanup.timer
-
-    # Snapshots on boot
-    # code /usr/lib/systemd/system/snapper-boot.service
-    #   ConditionPathExists=/etc/snapper/configs/@
-    #   ConditionPathExists=/etc/snapper/configs/@home
-    #   ExecStart=/usr/bin/snapper -c @ create -c number -d boot
-    #   ExecStart=/usr/bin/snapper -c @home create -c number -d boot
-    # systemctl enable snapper-boot.timer

@@ -12,6 +12,9 @@ sudo systemctl enable reflector.timer
 sudo systemctl enable btrfs-scrub@-.timer
 systemctl --user enable --now syncthing
 
+# sysctl overrides
+echo 'vm.max_map_count=1048576' | sudo tee -a /etc/sysctl.d/90-override.conf
+
 # paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
