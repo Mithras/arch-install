@@ -7,4 +7,4 @@ wayland xorg-xwayland
 
 sbctl reflector sudo btrfs-progs networkmanager bluez bluez-utils cifs-utils base-devel curl openssh snapper rsync git docker docker-compose syncthing nano adobe-source-han-sans-jp-fonts flatpak fcitx5-im htop nvtop iwd
 
-keepassxc qbittorrent mpv telegram-desktop strawberry steam ttf-liberation gamemode wine lib32-gnutls
+keepassxc qbittorrent mpv telegram-desktop strawberry steam ttf-liberation gamemode wine lib32-gnutls p7zip
