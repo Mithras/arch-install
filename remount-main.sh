@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-umount /mnt/main
-mount -t cifs -o username=mithras,uid=$USER,gid=$(id -gn) //synology/Main /mnt/main
+sudo umount /mnt/main
+sudo mount -t cifs -o username=mithras,uid=$USER,gid=$USER //synology/Main /mnt/main

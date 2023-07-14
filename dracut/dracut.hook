@@ -5,6 +5,7 @@ Operation=Upgrade
 Operation=Remove
 Target=linux
 Target=linux-headers
+Target=linux-firmware
 Target=nvidia-dkms
 
 [Action]
