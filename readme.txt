@@ -1,4 +1,8 @@
 - Install (https://wiki.archlinux.org/title/Installation_guide)
+  - [optional] ssh
+    passwd
+    ...
+    ssh -o StrictHostKeychecking=no root@archiso
   - partition
     lsblk
     gdisk /dev/XXX
