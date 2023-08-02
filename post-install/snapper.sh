@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-set -e
+set -eu
 
-UUID='90caced6-3990-47ef-a98f-d4a33942e18d'
+: "$UUID"
 
 sudo snapper -c @ create-config /
 sudo snapper -c @home create-config /home
@@ -14,7 +14,7 @@ sudo cp @ /etc/snapper/configs/@
 sudo cp @home /etc/snapper/configs/@home
 popd
 
-sudo mount UUID=90caced6-3990-47ef-a98f-d4a33942e18d /mnt
+sudo mount UUID=$UUID /mnt
 pushd /mnt
 sudo btrfs subvolume create @snapshots
 sudo btrfs subvolume create @snapshots/@

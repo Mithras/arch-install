@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-set -e
+set -eu
 
-UUID='2b93b382-67ee-4fd2-9da9-fee023e432e6'
-HOST='mithras-pc'
-USER='mithras'
+: "$UUID"
+: "$HOST"
+: "$USER"
 
 # Packages (common cpu-intel gpu-nvidia gpu-intel kde gnome)
 pushd ./packages

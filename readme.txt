@@ -49,6 +49,9 @@
 
     nano ./install.sh # review/update
 
+    export UUID=$(blkid -o value -s UUID /dev/XXX2)
+    export HOST='mithras-pc'
+    export USER='mithras'
     ./install.sh
   - secure boot
     sbctl status
@@ -71,6 +74,7 @@
     ./ssh-agent.sh
     
     code ./snapper.sh # review/update
+    export UUID=$(blkid -o value -s UUID /dev/XXX2)
     ./snapper.sh
 
     # syncthing
