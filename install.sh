@@ -34,11 +34,13 @@ sbctl sign -s /efi/EFI/BOOT/BOOTX64.EFI
 
 # Dracut
 pushd ./dracut
-sed -i -E "s/UUID=[^ ]+/UUID=$UUID/g" dracut.conf
 mkdir -p /etc/pacman.d/hooks
 cp dracut.sh /usr/local/bin/dracut.sh
 cp dracut.conf /usr/local/bin/dracut.conf
 cp dracut.hook /etc/pacman.d/hooks/dracut.hook
+sed -i -E "s/UUID=[^ ]+/UUID=$UUID/g" /usr/local/bin/dracut.conf
+nano /usr/local/bin/dracut.conf
+nano /usr/local/bin/dracut.sh
 /usr/local/bin/dracut.sh
 popd
 

@@ -8,6 +8,7 @@
     gdisk /dev/XXX
       n <default> <default> +1024M ef00
       n <default> <default> <default> <default>
+      p
       w
   - format
     lsblk
@@ -22,7 +23,7 @@
     btrfs subvolume create @/var/log
     btrfs subvolume create @/var/cache
     btrfs subvolume list .
-    cd
+    cd ~
     umount /mnt
   - mount
     lsblk --discard # non-zero DISC-GRAN and DISC-MAX indicate discard is supported
@@ -44,6 +45,7 @@
       Include=/etc/pacman.d/mirrorlist
     pacman -Sy
   - install.sh
+    cd ~
     git clone https://github.com/Mithras/arch-install.git
     cd ./arch-install
 
@@ -56,15 +58,15 @@
   - secure boot
     sbctl status
     sbctl enroll-keys -m
-  - password
-    passwd
-    passwd XXX
+  - passwords
+    passwd root
+    passwd $USER
   - reboot
     Ctrl+D
-    umount -R /mnt
     reboot
 - Post install
   - post-install.sh
+    cd ~
     git clone https://github.com/Mithras/arch-install.git
     cd ./arch-install/post-install
     
@@ -73,10 +75,6 @@
 
     ./ssh-agent.sh
     
-    code ./snapper.sh # review/update
-    export UUID=$(blkid -o value -s UUID /dev/XXX2)
-    ./snapper.sh
-
     # syncthing
     # keepass
     # fcitx

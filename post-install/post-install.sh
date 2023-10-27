@@ -7,6 +7,7 @@ sudo systemctl enable --now systemd-timesyncd
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now docker
 sudo systemctl enable --now sshd
+sudo systemctl enable --now cronie
 sudo systemctl enable fstrim.timer
 sudo systemctl enable reflector.timer
 sudo systemctl enable btrfs-scrub@-.timer
