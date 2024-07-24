@@ -7,7 +7,9 @@ Target=linux
 Target=linux-headers
 Target=linux-firmware
 Target=nvidia-dkms
+Target=nvidia-open-dkms
 Target=nvidia-beta-dkms
+Target=nvidia-open-beta-dkms
 
 [Action]
 Description=Updating UKIs...

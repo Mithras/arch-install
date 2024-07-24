@@ -9,6 +9,7 @@ for kernel in ${kernels[@]}; do
     kver="${kernel#'/usr/lib/modules/'}"
     kver="${kver%'/pkgbase'}"
 
+    cp "/efi/EFI/Linux/archlinux-$pkgbase.efi" "/efi/EFI/Linux/archlinux-$pkgbase.old.efi"
     dracut -c /usr/local/bin/dracut.conf --force --kver "$kver" --hostonly "/efi/EFI/Linux/archlinux-$pkgbase.efi"
     dracut -c /usr/local/bin/dracut.conf --force --kver "$kver" --no-hostonly "/efi/EFI/Linux/archlinux-$pkgbase-fallback.efi"
     sbctl sign -s "/efi/EFI/Linux/archlinux-$pkgbase.efi"
